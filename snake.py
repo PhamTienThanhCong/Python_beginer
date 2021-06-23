@@ -6,6 +6,7 @@ class point():
     y=0
     point=30
 
+
 class HeadSnake(point):
     def uprage(Key):
         if (Key=="UP"):
