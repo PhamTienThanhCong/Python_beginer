@@ -6,7 +6,7 @@ from snake import*
 pygame.init()
 screen=pygame.display.set_mode((LENGTHBACKGROUD,WIDTHBACKGROUD))
 
-#hello man
+#hello man hihih
 while runing:
     screen.fill(GREY)
     ru=run(Key)
