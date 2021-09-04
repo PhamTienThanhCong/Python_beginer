@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+auto đăng nhập vào facebook
+Tự động đăng bài,
+Tự động đăng bài lên marketplace
+đang có lỗi
+=======
+tự động chọn và vote cho Hậu của Bình
+>>>>>>> bf202767f102820b218b502be754bc2d1c90e453
