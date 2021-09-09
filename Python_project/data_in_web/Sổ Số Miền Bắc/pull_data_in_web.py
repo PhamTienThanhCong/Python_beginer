@@ -4,9 +4,6 @@ import requests
 from lxml import html
 from collections import namedtuple
 
-url = 'https://xoso.com.vn/xsmb-06-09-2021.html'
-day = '06092021'
-
 def get_data(url,day):
 
    htlm_web = requests.get(url)
@@ -20,5 +17,3 @@ def get_data(url,day):
       number_data.append(data)
 
    return number_data
-
-print(get_data(url,0))
