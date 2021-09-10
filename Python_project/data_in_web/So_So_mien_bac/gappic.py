@@ -31,7 +31,7 @@ def data_check():
     a,b,c=data_1()
     x,y,z=data_2()
     if (a==x and b==y and c==z):
-        if (check_today==True):
+        if (check_today()==True):
             text_print = "Kết quả hôm nay"
             print_data(a,b,c)
         else:
@@ -43,7 +43,7 @@ def data_check():
 def getdata():
     ngay,thang,nam=data_1()
     a,b,c = data_2()
-    kt = check_data(ngay,thang,nam);
+    kt = check_data(ngay,thang,nam)
     if kt!=None:
         text_print = kt
     else:
