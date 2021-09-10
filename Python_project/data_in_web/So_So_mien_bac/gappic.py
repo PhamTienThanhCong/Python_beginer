@@ -1,9 +1,6 @@
-from re import search
 from tkinter import *
 from typing import Sized
 from handle_data import *
-from pull_data_in_web import *
-import time
 
 main = Tk()
 
@@ -20,6 +17,7 @@ def data_1():
     ngay =  str(Ngay.get())
     thang = str(Thang.get())
     nam = str(Nam.get())
+    ngay,thang = fix_data(ngay,thang)
     return ngay,thang,nam
 
 def data_2():
@@ -34,21 +32,27 @@ def data_check():
     x,y,z=data_2()
     if (a==x and b==y and c==z):
         if (check_today==True):
-            text_print = "Ngày hoom nay"
+            text_print = "Ngày hôm nay"
         else:
-            text_print = "Chưa Tới giờ "
+            text_print = "Error: Có sau 18:30 "
         Label(main,text=text_print).grid(row=9,column=0)
-    
-    data_train = get_url(x,y,z)
-    print_data(data_train)
-
-
-
+    else:
+        print_data(a,b,c)    
 
 def getdata():
     ngay,thang,nam=data_1()
-    text_print = "Ngày: "+str(ngay)+"-"+str(thang)+"-"+str(nam)
+    a,b,c = data_2()
+    kt = check_data(ngay,thang,nam);
+    if kt!=None:
+        text_print = kt
+    else:
+        if (a==ngay and b==thang and c==nam):
+            text_print = "Ngày hôm nay"
+        else:
+            text_print = "Ngày: "+str(ngay)+"-"+str(thang)+"-"+str(nam)
     Label(main,text=text_print).grid(row=9,column=0)
+    current_time = "Time: "+data_time()
+    Label(main,text=current_time).grid(row=10,column=0)
     
 def settoday():
     day,month,year = data_2()
@@ -56,14 +60,10 @@ def settoday():
     Thang.set(month)
     Nam.set(year)
     
-
 def search_data():
+    clear()
     data_check()
     
-    
-
-
-
 Label(main,text="KẾT QUẢ SỔ SỐ MIỀN BẮC",justify=CENTER).grid(row=0,columnspan=3)
 
 for i in range(0,len(name_data)):
@@ -86,8 +86,14 @@ B = Button(text="set day",command=getdata)
 B.grid(row=11,column=5)
 
 Label(main,text="Nhập ngày tháng năm:  ").grid(row=11,column=0)
+
+Label(main,text="Ngày").grid(row=10,column=1)
 Entry(main,width=5,font=("Tahoma",12),textvariable=Ngay).grid(row=11,column=1)
+
+Label(main,text="Tháng").grid(row=10,column=2)
 Entry(main,width=5,font=("Tahoma",12),textvariable=Thang).grid(row=11,column=2)
+
+Label(main,text="Năm").grid(row=10,column=3)
 Entry(main,width=5,font=("Tahoma",12),textvariable=Nam).grid(row=11,column=3)
 
 main.mainloop()

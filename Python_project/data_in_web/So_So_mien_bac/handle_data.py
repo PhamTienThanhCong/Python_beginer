@@ -14,10 +14,8 @@ def get_url(day,month,year):
     day = day+month+year
     return get_data(url,day)
 
-data_train = get_url('09','09','2021')
-
-def print_data(data_train):
-    print(data_train)
+def print_data(a,b,c):
+    data_train = get_url(a,b,c)
     for i in range(0,len(data_train)):
         for j in range(0,len(data_train[i])):
             data[i][j].set(data_train[i][j])
@@ -27,31 +25,57 @@ def clear():
         for j in range(0,len(data_train[i])):
             data[i][j].set("")
 
-def check_today():
+
+def data_time():
     t = time.localtime()
     current_time = time.strftime("%H:%M", t)
+    return current_time
+
+def check_today():
+    current_time =data_time()
     if (current_time>"18:30"):
         return True
     else: 
         return False
 
+def fix_data(a,b):
+    if (len(a)==1):
+        a='0'+a
+    if (len(b)==1):
+        b='0'+b
+    return a,b
 
+def check_data(a,b,c):
+    for i in a:
+        if ('0'<=i and i<='9')==False:
+            return "Ngày Không hợp lệ"
+    for i in b:
+        if ('0'<=i and i<='9')==False:
+            return "Tháng Không hợp lệ"
+    for i in c:
+        if ('0'<=i and i<='9')==False:
+            return "Năm Không hợp lệ"
+    a=int(a)
+    b=int(b)
+    c=int(c)
 
-# def settoday():
-#     today = date.today()
-#     day   = today.strftime("%d")
-#     month = today.strftime("%m")
-#     year  = today.strftime("%Y")
-#     if check_today==True:
-#         # Label(main,text="Ngay chuan").grid(row=9,column=0)
-#         print("done")
+    today = date.today()
+    x   = today.strftime("%d")
+    y = today.strftime("%m")
+    z  = today.strftime("%Y")
 
-
-# day,month,year = settoday()
-# day,month,year = settoday()
-
-
-
-# url = 'https://xoso.com.vn/xsmb-09-09-2021.html'
-# day = '09092021'
-
+    if (a<1 or a>31):
+        return "Lỗi 1<=Ngày<=31"
+    if (b<1 or b>12):
+        return "Lỗi 1<=Tháng<=12"
+    if (c<2015):
+        return "Lỗi năm <=2015"
+    
+    if c==int(z):
+        if b==int(y):
+            if a>int(x):
+                return "Không vượt quá Ngày"
+        if b>int(y):
+            return "Không vượt quá tháng"
+    if c > int(z):
+        return "Không vượt quá năm"
