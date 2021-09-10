@@ -68,8 +68,8 @@ def check_data(a,b,c):
         return "Lỗi 1<=Ngày<=31"
     if (b<1 or b>12):
         return "Lỗi 1<=Tháng<=12"
-    if (c<2015):
-        return "Lỗi năm <=2015"
+    if (c<2008):
+        return str(c)+" không có dữ liệu"
     
     if c==int(z):
         if b==int(y):
