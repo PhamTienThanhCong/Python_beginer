@@ -32,7 +32,8 @@ def data_check():
     x,y,z=data_2()
     if (a==x and b==y and c==z):
         if (check_today==True):
-            text_print = "Ngày hôm nay"
+            text_print = "Kết quả hôm nay"
+            print_data(a,b,c)
         else:
             text_print = "Error: Có sau 18:30 "
         Label(main,text=text_print).grid(row=9,column=0)
