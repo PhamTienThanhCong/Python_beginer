@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-auto đăng nhập vào facebook
-Tự động đăng bài,
-Tự động đăng bài lên marketplace
-đang có lỗi
-=======
-tự động chọn và vote cho Hậu của Bình
->>>>>>> bf202767f102820b218b502be754bc2d1c90e453
+auto lựa chọn điểm chao nhất của phòng ctvs (điểm rèn luyện)
+
+future update: thêm ảnh
+
+sửa account và password bằng tài khoản truy cập nội bộ
+
+lưu ý hãy đăng nhập và vào phần chỉnh sửa và ấn vào chỉnh sửa trước khi chạy
