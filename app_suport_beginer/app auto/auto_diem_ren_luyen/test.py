@@ -6,8 +6,8 @@ from selenium.webdriver.common.by import By
 import pyautogui as df
 import random
 
-account  = "tk"
-password = "mk"
+account  = "20010920"
+password = "0333288883"
 
 click_edit = '//*[@id="root"]/div/main/div[1]/div/div[2]/div/div[2]/div/div[1]/div[1]/button'
 click_done = '/html/body/div[3]/div[3]/div/div[2]/button'
@@ -21,14 +21,16 @@ def login():
     broser.get('https://ctsv.phenikaa-uni.edu.vn/diem-ren-luyen/ca-nhan')
 
 def edit_click(xpath):
-    sleep(1)   
+    sleep(2)   
     clickBtn = broser.find_element(By.XPATH, xpath)
     clickBtn.click()
 
 a = [7,0,-65,-65]
 
 def send_key(keys):
+    sleep(0.2) 
     for i in keys:
+        sleep(0.2) 
         if (i > 0):
             for j in range(0 , i):
                 df.press('tab')
