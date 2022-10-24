@@ -57,14 +57,12 @@ def sinh_Si(x, y, z):
     return x,y,z
 
 def Key_S(num):
-    # x = SinhSoNgauNhien(6)
-    # y = SinhSoNgauNhien(8)
-    # z = SinhSoNgauNhien(9)
-    
-    x = [1,0,0,1,0,1]
-    y = [0,1,0,0,1,1,1,0]
-    z = [1,0,0,1,1,0,0,0,0]
+    x = SinhSoNgauNhien(6)
+    y = SinhSoNgauNhien(8)
+    z = SinhSoNgauNhien(9)
 
+    # print("k =", arr_to_str(x), arr_to_str(y), arr_to_str(z))
+    
     s = []
     
     for i in range(0, num):
@@ -73,6 +71,33 @@ def Key_S(num):
         s.append(si)    
     return s
 
-p = [1,1,1]
+# def arr to string
+def arr_to_str(arr):
+    s = ''
+    for i in range(0, len(arr)):
+        s += str(arr[i])
+    return s
 
-print(XOR_arr(p, Key_S(len(p))))
+def Ma_Hoa(p):
+    S = Key_S(len(p))
+    ma_hoa = XOR_arr(p, S)
+    # print("Mã Hóa:", arr_to_str(p),"->", arr_to_str(ma_hoa))
+    return ma_hoa
+
+# string to array
+def str_to_arr(s):
+    arr = []
+    for i in range(0, len(s)):
+        # string to ascii binary
+        arr.append(bin(ord(s[i]))[2:])
+    return arr
+
+a = "Cong xin chao"
+
+a_arr = str_to_arr(a)
+a_decode = ""
+
+for i in a_arr:
+    a_decode = a_decode + arr_to_str(Ma_Hoa(i)) + ' '
+
+print (a, "->", a_decode)
